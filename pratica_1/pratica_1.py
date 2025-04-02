@@ -28,6 +28,31 @@ m = t * np.exp(-t)
 # 4 - q(t) = exp(-t)*cos(t)
 q = np.exp(-t) * np.cos(t)
 
+functions = f"""
+Exercicio 1
+
+1. p(t) = sin(3t)
+2. f(t) = exp(-t)
+3. m(t) = t * exp(-t)
+4. q(t) = exp(-t) * cos(t)
+
+dt = 0.01
+t = np.arange(start=-10, stop=10 + dt, step=dt)
+
+p = np.sin(3 * t)
+
+f = np.exp(-t)
+
+m = t * np.exp(-t)
+
+q = np.exp(-t) * np.cos(t)
+"""
+fig, ax = plt.subplots(figsize=(8.27, 11.69))
+ax.text(0.5, 0.5, functions, fontsize=12, ha="center", va="center", wrap=True)
+ax.set_axis_off()
+pdf.savefig(fig)
+plt.close(fig)
+
 """
 Exercicio 2
 """
@@ -46,15 +71,28 @@ m = np.multiply(t, np.exp(-t))  # 3 - m(t) = t*exp(-t)
 q = np.exp(-t) * np.cos(t) * u  # 4 - q(t) = exp(-t)*cos(t)*u(t)
 
 functions = f"""
-Functions defined:
+Exercicio 2
 
 1. p(t) = sin(3t)
 2. f(t) = exp(-t) * u(t)
 3. m(t) = t * exp(-t)
 4. q(t) = exp(-t) * cos(t) * u(t)
+
+dt = 0.01
+t = np.arange(start=-10, stop=10 + dt, step=dt)
+u = np.zeros(t.size)
+u = np.heaviside(t, 1)
+
+p = np.sin(3 * t)
+
+f = np.multiply(np.exp(-t), u)
+
+m = np.multiply(t, np.exp(-t))
+
+q = np.exp(-t) * np.cos(t) * u
 """
-fig, ax = plt.subplots(figsize=(6, 4))
-ax.text(0.5, 0.5, functions, fontsize=12, ha='center', va='center', wrap=True)
+fig, ax = plt.subplots(figsize=(8.27, 11.69))
+ax.text(0.5, 0.5, functions, fontsize=12, ha="center", va="center", wrap=True)
 ax.set_axis_off()
 pdf.savefig(fig)
 plt.close(fig)
